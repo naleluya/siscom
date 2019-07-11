@@ -7,11 +7,12 @@
 @section('content')
 <section class="content-header">
         <h1>
-          Principal
+          Permisos
         </h1>
         <ol class="breadcrumb">
-          <li><a href="#"><i class="fa fa-dashboard"></i> Registros</a></li>
-        </ol>
+            <li><a href="#"><i class="fa fa-dashboard"></i> Registros</a></li>
+            <li><a href="#">Permisos</a></li>
+          </ol>
       </section>
   
       <!-- Main content -->
@@ -46,7 +47,6 @@
                         <td>X</td>
                         <td>X</td>
                       </tr>
-                      <tr>
                       </tbody>
                       <tfoot>
                       <tr>

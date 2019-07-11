@@ -14,6 +14,11 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/administradores', function(){
-    return view('usuarios.administradores');
-});
+//Grupo de Registros
+Route::get('/comisiones', ['as' => 'comisiones', 'uses' => 'RegistrosController@comisiones']);
+Route::get('/permisos', ['as' => 'permisos', 'uses' => 'RegistrosController@permisos']);
+Route::get('/salidas', ['as' => 'salidas', 'uses' => 'RegistrosController@salidas']);
+//Grupo de Registros
+Route::get('/secretarias', ['as' => 'secretarias', 'uses' => 'DependenciasController@secretarias']);
+
+

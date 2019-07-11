@@ -4,7 +4,7 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="{{ asset('dist/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
           <p>Alexander Pierce</p>
@@ -27,8 +27,16 @@
         <li class="header">MAPA DEL SITIO</li>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-list-ul"></i> <span>Inicio</span>
+            <i class="fa fa-list-ul"></i> <span>Registros</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+            </span>
           </a>
+          <ul class="treeview-menu">
+              <li><a href="{{ route('comisiones') }}"><i class="fa fa-circle-o"></i> Comisiones</a></li>
+              <li><a href="{{ route('permisos') }}"><i class="fa fa-circle-o"></i> Permisos</a></li>
+              <li><a href="{{ route('salidas') }}"><i class="fa fa-circle-o"></i> Libro de Salidas</a></li>
+            </ul>
         </li>
         <li class="treeview">
             <a href="#">
@@ -38,24 +46,16 @@
               </span>
             </a>
             <ul class="treeview-menu">
-                <li><a href="../layout/top-nav.html"><i class="fa fa-circle-o"></i> Adminitradores</a></li>
-                <li><a href="../layout/boxed.html"><i class="fa fa-circle-o"></i> Superiores</a></li>
-                <li><a href="../layout/fixed.html"><i class="fa fa-circle-o"></i> Funcionarios</a></li>
-              </ul>
+              <li><a href="#"><i class="fa fa-circle-o"></i> Adminitradores</a></li>
+              <li><a href="../layout/boxed.html"><i class="fa fa-circle-o"></i> Superiores</a></li>
+              <li><a href="../layout/fixed.html"><i class="fa fa-circle-o"></i> Funcionarios</a></li>
+            </ul>
         </li>
         <li class="treeview">
-          <a href="#">
+          <a href="{{ route('secretarias') }}">
             <i class="fa fa-bank"></i>
-            <span>Ddependencias</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+            <span>Dependencias</span>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="../layout/top-nav.html"><i class="fa fa-circle-o"></i> Secretarias</a></li>
-            <li><a href="../layout/boxed.html"><i class="fa fa-circle-o"></i> Direcciones</a></li>
-            <li><a href="../layout/fixed.html"><i class="fa fa-circle-o"></i> Unidades</a></li>
-          </ul>
         </li>
         <li class="treeview">
           <a href="#">

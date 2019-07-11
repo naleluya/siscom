@@ -6,6 +6,8 @@
   <title>SISCOM</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="{{ asset('mif/favicon.ico') }}">
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="{{ asset('bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
     <!-- Font Awesome -->
@@ -122,12 +124,8 @@
           <!-- /.content-wrapper -->
         
           <footer class="main-footer">
-            <div class="pull-right hidden-xs">
-              <b>Version</b> 2.4.0
-            </div>
             <strong>Copyright &copy; {{ date('Y') }} 
-               <a href="#"> GAMEA</a>.</strong> Todos los derechos reservados
-            reserved.
+               <a href="#"> GAMEA</a>.</strong> Todos los derechos reservados.
           </footer>
         </div>
         <!-- ./wrapper -->

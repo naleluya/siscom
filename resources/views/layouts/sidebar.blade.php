@@ -52,10 +52,16 @@
             </ul>
         </li>
         <li class="treeview">
-          <a href="{{ route('secretarias') }}">
+          <a href="#">
             <i class="fa fa-bank"></i>
             <span>Dependencias</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
           </a>
+          <ul class="treeview-menu">
+              <li><a href="{{ route('dependencias') }}"><i class="fa fa-circle-o"></i> Todas las dependencias</a></li>
+            </ul>
         </li>
         <li class="treeview">
           <a href="#">
@@ -66,7 +72,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../charts/chartjs.html"><i class="fa fa-circle-o"></i> ChartJS</a></li>
+            <li><a href="{{ route('dependencias') }}"><i class="fa fa-circle-o"></i> ChartJS</a></li>
             <li><a href="../charts/morris.html"><i class="fa fa-circle-o"></i> Morris</a></li>
           </ul>
         </li>        

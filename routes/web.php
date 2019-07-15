@@ -18,7 +18,8 @@ Route::get('/', function () {
 Route::get('/comisiones', ['as' => 'comisiones', 'uses' => 'RegistrosController@comisiones']);
 Route::get('/permisos', ['as' => 'permisos', 'uses' => 'RegistrosController@permisos']);
 Route::get('/salidas', ['as' => 'salidas', 'uses' => 'RegistrosController@salidas']);
-//Grupo de Registros
-Route::get('/secretarias', ['as' => 'secretarias', 'uses' => 'DependenciasController@secretarias']);
 
+//Grupo de Deopendencias
+Route::get('/dependencias', ['as' => 'dependencias', 'uses' => 'DependenciasController@dependencias']);
+Route::get('/dependencias/menores', ['as' => 'menores', 'uses' => 'DependenciasController@menores']);
 

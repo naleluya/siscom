@@ -24,12 +24,14 @@ class DependenciasController extends Controller
         return view('dependencias.dependencias', ['dependencia'=>$secre]);
     }
 
-    public function menores()
+    public function menores($sec_cod)
     {
-        $direccion = Direction::all();
+        //$sec_cod = 1;
+        $direccion = Direction::select('*')->where('sec_id',$sec_cod)->get();
         $unidades = Unit::all();
         
-        return view('dependencias.dependencias', ['direccion'=>$direccion, 'unidad'=>$unidades]);
+        
+        return view('dependencias.menores', ['direccion'=>$direccion, 'unidad'=>$unidades]);
     }
 
     public function create_secretarias()

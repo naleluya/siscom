@@ -46,9 +46,10 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="#"><i class="fa fa-circle-o"></i> Adminitradores</a></li>
-              <li><a href="../layout/boxed.html"><i class="fa fa-circle-o"></i> Superiores</a></li>
-              <li><a href="../layout/fixed.html"><i class="fa fa-circle-o"></i> Funcionarios</a></li>
+              <li><a href="#"><i class="fa fa-circle-o text-red"></i> Administradores</a></li>
+              <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> Superiores</a></li>
+              <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> Funcionarios</a></li>
+              <li><a href="#"><i class="fa fa-circle-o text-green"></i> Controles</a></li>
             </ul>
         </li>
         <li class="treeview">
@@ -60,7 +61,7 @@
               </span>
           </a>
           <ul class="treeview-menu">
-              <li><a href="{{ route('dependencias') }}"><i class="fa fa-circle-o"></i> Todas las dependencias</a></li>
+              <li><a href="{{ route('dependencias') }}"><i class="fa fa-circle-o text-yellow"></i> Secretarias</a></li>
             </ul>
         </li>
         <li class="treeview">

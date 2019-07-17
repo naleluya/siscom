@@ -19,7 +19,9 @@ Route::get('/comisiones', ['as' => 'comisiones', 'uses' => 'RegistrosController@
 Route::get('/permisos', ['as' => 'permisos', 'uses' => 'RegistrosController@permisos']);
 Route::get('/salidas', ['as' => 'salidas', 'uses' => 'RegistrosController@salidas']);
 
-//Grupo de Deopendencias
+//Grupo de Dependencias
 Route::get('/dependencias', ['as' => 'dependencias', 'uses' => 'DependenciasController@dependencias']);
-Route::get('/dependencias/menores', ['as' => 'menores', 'uses' => 'DependenciasController@menores']);
+Route::get('/dependencias/menores/{id}', ['as' => 'menores', 'uses' => 'DependenciasController@menores']);
+
+//Grupo de Usuarios
 

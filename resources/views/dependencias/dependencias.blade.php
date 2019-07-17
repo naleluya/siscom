@@ -13,35 +13,10 @@
 </section>
 
 <!-- Main content -->
-<section class="content">
-  <?php $i=0; ?>
-  <?php $j=0; ?>
-    @foreach ($dependencia as $depe )
-    <div class="box collapsed-box">
-        <div class="box-header with-border">
-            <h3 class="box-title">{{ $depe->sec_name }}</h3>
-             
-            <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
-                    title="Collapse">
-                    <i class="fa fa-minus"></i></button>
-            </div>
-        </div>
-        <div class="box-body">
-            <!-- Direcciones -->
-            <div class="row">
-                <?php $i=$i+1; ?>
-                
-            </div>
-            <!-- /.row -->
-            <!-- /Direcciones -->
-        </div>
-        <!-- /.box-body -->
-    </div>
-    @endforeach
-    <!-- /.box -->
+
 
     <!-- Small boxes (Stat box) -->
+    <section class="content-header">
     <div class="row">
       @foreach ($dependencia as $dep)
           <div class="col-lg-3 col-xs-6">
@@ -54,7 +29,7 @@
             <div class="icon">
               <i class="fa fa-bank"></i>
             </div>
-            <a href="#" class="small-box-footer">
+            <a href="{{ route('menores', $dep->id) }}" class="small-box-footer">
               Dependencias <i class="fa fa-arrow-circle-right"></i>
             </a>
           </div>

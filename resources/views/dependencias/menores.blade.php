@@ -1,101 +1,111 @@
 @extends('layouts.template')
 
 @section('css')
+  <!-- DataTables -->
+  <link rel="stylesheet" href="{{ asset('bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
 @endsection
 @section('content')
 <section class="content-header">
     <h1>
-        Dependencias
+        Direcciones/Unidades
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Dependencias</a></li>
+        <li class="active">Direcciones y Unidades</li>
     </ol>
 </section>
 
 <!-- Main content -->
 <section class="content">
-  <?php $i=0; ?>
-  <?php $j=0; ?>
-    @foreach ($dependencia as $depe )
-    <div class="box collapsed-box">
+  <div class="row">
+    <div class="col-md-3">
+      <a href="#" class="btn btn-primary btn-block margin-bottom">Adicionar Dirección</a>
+
+      @foreach ($direccion as $dir)
+      <div class="box box-solid">
         <div class="box-header with-border">
-            <h3 class="box-title">{{ $depe->sec_name }}</h3>
-             
-            <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
-                    title="Collapse">
-                    <i class="fa fa-minus"></i></button>
-            </div>
-        </div>
-        <div class="box-body">
-            <!-- Direcciones -->
-            <div class="row">
-                <?php $i=$i+1; ?>
-                @foreach ($direccion as $dire)
-                @if ($dire->sec_id == $i)
-                    
-                <div class="col-md-3">
-                    <div class="box box-warning collapsed-box">
-                        <div class="box-header with-border">
-                            <h3 class="box-title">{{ $dire->dir_name }}</h3>
+          <a href="#"><h3 class="box-title">{{ $dir->dir_name }}</h3></a>
 
-                            <div class="box-tools pull-right">
-                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i
-                                        class="fa fa-minus"></i>
-                                </button>
-                            </div>
-                            <!-- /.box-tools -->
-                        </div>
-                        <!-- /.box-header -->
-                        <div class="box-body">
-                            <?php $j=$j+1; ?>
-                            @foreach ($unidad as $unid)
-                              @if ($unid->direction_id == $j)
-                              <i class="fa fa-play fa-1x"></i> {{ $unid->uni_name }}<br>
-                              @endif
-                            @endforeach
-                            
-                        </div>
-                        <!-- /.box-body -->
-                    </div>
-                    <!-- /.box -->
-                </div>
-                <!-- /.col -->
-                @endif
-
-                @endforeach
-            </div>
-            <!-- /.row -->
-            <!-- /Direcciones -->
-        </div>
-        <!-- /.box-body -->
-    </div>
-    @endforeach
-    <!-- /.box -->
-
-    <!-- Small boxes (Stat box) -->
-    <div class="row">
-      @foreach ($dependencia as $dep)
-          <div class="col-lg-3 col-xs-6">
-          <!-- small box -->
-          <div class="small-box {{ $dep->class }}">
-            <div class="inner">
-              <h3>150</h3>
-              <p>{{ $dep->sec_name }}</p>
-            </div>
-            <div class="icon">
-              <i class="fa fa-bank"></i>
-            </div>
-            <a href="#" class="small-box-footer">
-              Dependencias <i class="fa fa-arrow-circle-right"></i>
-            </a>
+          <div class="box-tools">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
           </div>
         </div>
-      @endforeach           
+        <div class="box-body no-padding">
+          <ul class="nav nav-pills nav-stacked">
+            @foreach ($unidad as $uni)
+              @if ($dir->id == $uni->dir_id)
+              <li class="active"><a href="#"><i class="fa fa-inbox"></i> {{ $uni->uni_name }}
+              <span class="label label-primary pull-right">12</span></a></li>
+              @endif
+            @endforeach                        
+          </ul>
+        </div>
+        <!-- /.box-body -->
+      </div> 
+      @endforeach
+      
+      <!-- /. box -->
     </div>
-      <!-- /.row -->
+    <!-- /.col -->
+    <div class="col-md-9">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Personal</h3>
+          <!-- /.box-tools -->
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body no-padding">
+          
+            <div class="box-body">
+                <table id="personal" class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th style="width: 5%">#</th>
+                    <th>Funcionario</th>
+                    <th>Cargo</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Internet
+                      Explorer 4.0
+                    </td>
+                    <td>Win 95+</td>
+                  </tr>
+                  </tbody>
+                  <tfoot>
+                  <tr>
+                    <th>#</th>
+                    <th>Funcionario</th>
+                    <th>Cargo</th>
+                  </tr>
+                  </tfoot>
+                </table>
+              </div>
+          <!-- /.mail-box-messages -->
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer no-padding">
+          
+        </div>
+      </div>
+      <!-- /. box -->
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
 </section>
 <!-- /.content -->
 @section('js')
+  <!-- DataTables -->
+  <script src="{{ asset('bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+  <script src="{{ asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
+  <script>
+    $(function () {
+      $('#personal').DataTable()
+    })
+  </script>
 @endsection
 @endsection

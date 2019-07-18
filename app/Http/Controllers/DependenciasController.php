@@ -6,7 +6,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Secretarie;
 use App\Direction;
-
 use App\Unit;
 
 class DependenciasController extends Controller
@@ -26,12 +25,12 @@ class DependenciasController extends Controller
 
     public function menores($sec_cod)
     {
-        //$sec_cod = 1;
+        $secre = Secretarie::all();
         $direccion = Direction::select('*')->where('sec_id',$sec_cod)->get();
         $unidades = Unit::all();
         
         
-        return view('dependencias.menores', ['direccion'=>$direccion, 'unidad'=>$unidades]);
+        return view('dependencias.menores', ['direccion'=>$direccion, 'unidad'=>$unidades, 'secretaria'=>$secre]);
     }
 
     public function create_secretarias()
@@ -40,8 +39,17 @@ class DependenciasController extends Controller
         /*$secretary = new Secretarie;
 
         $secretary->sec_name => $request->sec_name;
-        $secretary->des_id=1;
 
         $secretary->save();*/
+    }
+
+    public function create_direcciones(Request $request)
+    {
+        //
+        $direction = new Direction;
+        $direction->dir_name = $request->dir_name;
+        $direction->sec_id = $request->sec_id;
+
+        $direction->save();
     }
 }

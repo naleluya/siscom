@@ -19,8 +19,12 @@
 <section class="content">
   <div class="row">
     <div class="col-md-3">
-      <a href="#" class="btn btn-primary btn-block margin-bottom">Adicionar Dirección</a>
-
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#crear_direccion">
+            Crear Direccion 
+          </button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
+              Crear Unidad
+          </button> <br><br>  
       @foreach ($direccion as $dir)
       <div class="box box-solid">
         <div class="box-header with-border">
@@ -98,6 +102,38 @@
   <!-- /.row -->
 </section>
 <!-- /.content -->
+<!-- modal -->
+<div class="modal fade" id="crear_direccion" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalScrollableTitle">Crear Dirección</h5>
+        </div>
+        <div class="modal-body">
+            <form method="post" action="/dependencias/create_direcciones">
+                <div class="form-group">
+                  <label>Nombre de la Dirección</label>
+                  <input type="text" class="form-control" id="dir_name" name="dir_name">
+                  <input type="hidden" name="_method" value="PUT">
+                  {{ csrf_field() }}
+                </div>
+                <div class="form-group">
+                  <label>Secretaria</label>
+                  @foreach ($secretaria as $sec)
+                      @if ($dir->sec_id == $sec->id)
+                         <input type="text" class="form-control" id="sec_name" name="sec_id" value="{{ $sec->sec_name }}" disabled> 
+                      @endif   
+                  @endforeach
+                  <input type="hidden" id="sec_id" name="sec_id" value="{{ $dir->sec_id }}">
+                </div>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+              </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- ./modal -->
 @section('js')
   <!-- DataTables -->
   <script src="{{ asset('bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>

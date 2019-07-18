@@ -1,4 +1,6 @@
 <?php
+use Symfony\Component\Routing\Route;
+use App\Http\Controllers\DependenciasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +24,7 @@ Route::get('/salidas', ['as' => 'salidas', 'uses' => 'RegistrosController@salida
 //Grupo de Dependencias
 Route::get('/dependencias', ['as' => 'dependencias', 'uses' => 'DependenciasController@dependencias']);
 Route::get('/dependencias/menores/{id}', ['as' => 'menores', 'uses' => 'DependenciasController@menores']);
+Route::get('/dependencias/create_direcciones', 'DependenciasController@create_direcciones');
 
 //Grupo de Usuarios
 
